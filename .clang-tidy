@@ -1,0 +1,47 @@
+Checks: '
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -macro-to-enum,
+  performance-*,
+  readability-*,
+  -readability-redundant-access-specifiers,
+  bugprone-*,
+  misc-*,
+  -misc-include-cleaner,
+  concurrency-*,
+  cert-*,
+  hicpp-*,
+'
+
+CheckOptions:
+  # Structs
+  - { key: readability-identifier-naming.StructCase,                value: CamelCase }
+
+  # Unions
+  - { key: readability-identifier-naming.UnionCase,                 value: CamelCase }
+
+  # Enums
+  - { key: readability-identifier-naming.EnumCase,                  value: CamelCase }
+  - { key: readability-identifier-naming.EnumConstantCase,          value: lower_case }
+  - { key: readability-identifier-naming.ScopedEnumConstantCase,    value: lower_case }
+
+  # Typedef
+  - { key: readability-identifier-naming.TypedefCase,              value: CamelCase }
+
+  # Functions
+  - { key: readability-identifier-naming.FunctionCase,             value: lower_case }
+  - { key: readability-identifier-naming.GlobalFunctionCase,       value: lower_case }
+
+  # Variables
+  - { key: readability-identifier-naming.VariableCase,             value: lower_case }
+  - { key: readability-identifier-naming.GlobalVariableCase,       value: lower_case }
+  - { key: readability-identifier-naming.ConstantCase,             value: lower_case }
+
+  # Macros
+  - { key: readability-identifier-naming.MacroDefinitionCase,      value: UPPER_CASE }
+
+WarningsAsErrors: "true"
