@@ -1,15 +1,18 @@
 #include "renderer.h"
 
-#include "instance.h"
+#include "renderer/vulkan/instance.h"
+#include "vulkan/debug_messenger.h"
 
-b8 renderer_startup(VulkanContext *context)
+b8 create_renderer(Context* context)
 {
-	renderer_create_vulkan_instance(context);
+	create_instance(context);
+	create_debug_messenger(context);
 
 	return TRUE;
 }
 
-void renderer_shutdown(const VulkanContext *context)
+void destroy_renderer(const Context* context)
 {
-	renderer_destroy_vulkan_instance(context);
+	destroy_debug_messenger(context);
+	destroy_instance(context);
 }

@@ -50,6 +50,7 @@ InsertNewlineAtEOF: true
 MacroBlockBegin: ''
 MacroBlockEnd: ''
 NamespaceIndentation: All
+PointerAlignment: Left
 SpaceAfterTemplateKeyword: false
 SpaceInEmptyParentheses: false
 SpacesInAngles: false

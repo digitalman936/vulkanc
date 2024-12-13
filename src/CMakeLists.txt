@@ -10,6 +10,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PRIVATE Vulkan::Vulkan)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
-        "$<$<CONFIG:Debug>:DEBUG_BUILD>"
-        "$<$<CONFIG:Release>:RELEASE_BUILD>"
+        "$<$<CONFIG:Debug>:VC_DEBUG_BUILD>"
+        "$<$<CONFIG:Release>:VC_RELEASE_BUILD>"
 )

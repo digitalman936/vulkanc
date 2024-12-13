@@ -12,11 +12,11 @@ struct InternalState
 
 LRESULT CALLBACK win32_process_message(HWND hwnd, u32 msg, WPARAM w_param, LPARAM l_param);
 
-b8 platform_startup(PlatformState *platform_state, const char *application_name, const i32 x, const i32 y,
-				  const i32 width, const i32 height)
+b8 platform_startup(PlatformState* platform_state, const char* application_name, const i32 x, const i32 y,
+					const i32 width, const i32 height)
 {
 	platform_state->internal_state = malloc(sizeof(InternalState));
-	InternalState *state = platform_state->internal_state;
+	InternalState* state = platform_state->internal_state;
 
 	state->instance_handle = GetModuleHandleA(0);
 
@@ -82,9 +82,9 @@ b8 platform_startup(PlatformState *platform_state, const char *application_name,
 	return TRUE;
 }
 
-void platform_shutdown(const PlatformState *platform_state)
+void platform_shutdown(const PlatformState* platform_state)
 {
-	InternalState *state = platform_state->internal_state;
+	InternalState* state = platform_state->internal_state;
 
 	if (state->instance_handle)
 	{
@@ -99,8 +99,14 @@ b8 platform_pump_messages()
 
 	while (PeekMessageA(&message, NULL, 0, 0, PM_REMOVE))
 	{
+		if (message.message == WM_QUIT)
+		{
+			return FALSE;
+		}
+
 		TranslateMessage(&message);
 		DispatchMessageA(&message);
+
 	}
 
 	return TRUE;

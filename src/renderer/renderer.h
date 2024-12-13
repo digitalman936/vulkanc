@@ -1,7 +1,8 @@
 #pragma once
 
-#include "context.inl"
 #include "core/defines.h"
+#include "vulkan/context.inl"
 
-b8 renderer_startup(VulkanContext *context);
-void renderer_shutdown(const VulkanContext *context);
+b8 create_renderer(Context* context);
+
+void destroy_renderer(const Context* context);
